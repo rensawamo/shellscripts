@@ -97,6 +97,12 @@ module.exports = {
 };
 ```
 
+# 使いかた 
+```sh
+$ git add .
+
+```
+
 [angular](https://github.com/angular/angular/tree/main) の規約を参考にした
 githubのコーディング規約
 
