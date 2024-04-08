@@ -1,4 +1,4 @@
-環境 Ubuntu 22.04
+環境 wsl2 Ubuntu 22.04
 
 install
 ```sh
@@ -112,9 +112,15 @@ $ git cz
   package:    パッケージ 
 
 ? 変更内容を簡潔に書いてください:
- 
-[-------------------------------------------------------------] 54 chars left
-   chore: メッセージ (#issue num)
+chore: メッセージ (#issue num)
+```
+
+### コミット履歴が見やすくなる
+```sh
+$ git log --oneline
+2732326 chore: メッセージ (#issue num)
+0a46e68 refactor: Readmeに 設定を追加 (#4)
+10e11a8 chore: git czのbodyとかが反応しない (#1)
 ```
 
 [angular](https://github.com/angular/angular/tree/main) の規約を参考にした
@@ -123,8 +129,9 @@ githubのコーディング規約
 ``` sh
 <type>: <short summary>
   │             │
-  │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし
+  │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし (#issue)
   │      
   └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test 
 ```
+
 
