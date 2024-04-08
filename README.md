@@ -1,3 +1,8 @@
+install
+```sh
+$ 
+```
+
 [angular](https://github.com/angular/angular/tree/main) の規約を参考にした
 githubのコーディング規約
 
