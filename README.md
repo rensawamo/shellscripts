@@ -1,22 +1,110 @@
+環境 Ubuntu 22.04
+
 install
 ```sh
-$
+$ npm install -g git-cz
+```
+
+commit のテンプレートの設定
+```sh
+$ cd ~ 
+$ touch  changelog.config.js
+$ vim  touch  changelog.config.js
+
+module.exports = {
+  disableEmoji: false,
+  format: '{type}: {subject}',
+  list: [
+    'chore',
+    'ci',
+    'config',
+    'docs',
+    'feat',
+    'fix',
+    'package',
+    'perf',
+    'refactor',
+    'release',
+    'style',
+    'test',
+  ],
+  maxMessageLength: 64,
+  minMessageLength: 3,
+  questions: [
+    'type',
+    'subject',
+    'lerna',
+  ],
+  types: {
+    chore: {
+      description: 'ビルド関連や補助ツールの変更',
+      value: 'chore',
+    },
+    ci: {
+      description: 'CI関連の変更',
+      value: 'ci',
+    },
+    config: {
+      description: '設定ファイル',
+      value: 'config',
+    },
+    docs: {
+      description: 'ドキュメントの更新',
+      value: 'docs',
+    },
+    feat: {
+      description: '機能の追加、変更、削除）',
+      value: 'feat',
+    },
+    fix: {
+      description: 'バグ修正',
+      value: 'fix',
+    },
+    package: {
+      description: 'パッケージ',
+      value: 'package',
+    },
+    perf: {
+      description: 'パフォーマンス改善',
+      value: "pref"
+    },
+    refactor: {
+      description: 'リファクタリング',
+      value: 'refactor',
+    },
+    release: {
+      description: 'リリース、公開',
+      value: 'release',
+    },
+    style: {
+      description:
+        'コードのスタイル調整（マークアップ、フォーマット、セミコロン、etc）',
+      value: 'style',
+    },
+    test: {
+      description: 'テストコードの変更',
+      value: 'test',
+    },
+  },
+  messages: {
+    type: 'コミットする内容はどの型ですか:',
+    scope: 'コミットが影響するスコープを選んでください:',
+    subject: '変更内容を簡潔に書いてください:\n',
+    body: '変更内容の詳細があれば書いてください:\n ',
+    breaking: '重要な変更があれば書いてください:\n',
+    issues: 'このコミットで閉じるIssuesがあれば書いてください。例： #123:',
+  },
+};
 ```
 
 [angular](https://github.com/angular/angular/tree/main) の規約を参考にした
 githubのコーディング規約
 
 ``` sh
-<type>(<scope>): <short summary>
-  │       │             │
-  │       │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし
-  │       │
-  │       └─⫸ コミットの影響範囲: animations|bazel|benchpress|common|compiler|compiler-cli|core|
-  │                          elements|forms|http|language-service|localize|platform-browser|
-  │                          platform-browser-dynamic|platform-server|router|service-worker|
-  │                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|
-  │                          devtools
-  │
+<type>: <short summary>
+  │             │
+  │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし
+  │      
   └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test 
 ```
 
