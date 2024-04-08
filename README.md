@@ -101,6 +101,20 @@ module.exports = {
 ```sh
 $ git add .
 
+$ git cz
+? コミットする内容はどの型ですか: (Use arrow keys or type to search)
+❯ chore:      ビルド関連や補助ツールの変更 
+  ci:         CI関連の変更 
+  config:     設定ファイル 
+  docs:       ドキュメントの更新 
+  feat:       機能の追加、変更、削除） 
+  fix:        バグ修正 
+  package:    パッケージ 
+
+? 変更内容を簡潔に書いてください:
+ 
+[-------------------------------------------------------------] 54 chars left
+   chore: メッセージ (#issue num)
 ```
 
 [angular](https://github.com/angular/angular/tree/main) の規約を参考にした
