@@ -20,9 +20,10 @@ githubのコーディング規約
   └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test 
 ```
 test
-test
+testd
    test
 testd
+test
 test
 test
 test
