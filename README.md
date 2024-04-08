@@ -9,7 +9,7 @@ commit のテンプレートの設定
 ```sh
 $ cd ~ 
 $ touch  changelog.config.js
-$ vim  touch  changelog.config.js
+$ vim  changelog.config.js
 
 module.exports = {
   disableEmoji: false,
