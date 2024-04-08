@@ -12,5 +12,5 @@ githubのコーディング規約
   │                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|
   │                          devtools
   │
-  └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test
+  └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test 
 ```
