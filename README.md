@@ -13,7 +13,7 @@ $ vim  changelog.config.js
 
 module.exports = {
   disableEmoji: false,
-  format: '{type}: {subject}',
+  format: '{scope} {type}: {subject}',
   list: [
     'chore',
     'ci',
@@ -31,10 +31,12 @@ module.exports = {
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: [
+         'scope',
     'type',
     'subject',
     'lerna',
   ],
+        scopes: ['dir', 'com', 'package', 'apps', ''],
   types: {
     chore: {
       description: 'ビルド関連や補助ツールの変更',
@@ -133,3 +135,4 @@ githubのコーディング規約
   │      
   └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test 
 ```
+
