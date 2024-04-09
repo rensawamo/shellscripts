@@ -99,7 +99,7 @@ module.exports = {
 };
 ```
 
-# 使いかた 
+# 使い方
 ```sh
 $ git add .
 
@@ -130,12 +130,12 @@ githubのコーディング規約
 
 ``` sh
 <[scope]><type>: <short summary>
-│          │             │
-│          │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし (#issue)
-│          │      
-│          └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test
-│ 
-└─⫸ コミットの対象となるGoモジュールを特定するためのもの
+   │       │             │
+   │       │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし (#issue)
+   │       │      
+   │       └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test
+   │ 
+   └─⫸ コミットの対象となるGoモジュールを特定するためのもの
 ```
 
  
@@ -171,9 +171,10 @@ UNIX 間のアプリの移植性を高めるための規格
 
 # Shellの実行
 ```sh
-$  ./test.sh
+$ ./test.sh
 bash: ./test.sh: Permission denied
 ```
+
 権限の付与が必要
 ```sh
 $ chmod +x test.sh
@@ -186,7 +187,7 @@ echo
 ```
 
 複数コマンド ; で区切る
-```
+```sh
 echo 'Hello world!'; pwd; echo 'End world!';
 ```
 
@@ -198,27 +199,97 @@ var='value1'
 
 ### 変数の参照 
 ```sh
-$ or  ${}
+or  ${}
 ```
 
 ### 変数の上書きを防止
 ```sh
-$ UWAGAKI='上書き'
-$ UWAGAKI='オーバーライド'
+UWAGAKI='上書き'
+UWAGAKI='オーバーライド'
 ./test.sh: line 42: UWAGAKI: readonly variable
 ```
 
 ### 変数の初期化
 unsetを使うと 未定義の状態にもどす
 ```sh
-$ var='set'
-$ echo $var
-$ unset var
-$ echo $var
-$ echo '↑ 空白(初期化)'
+var='set'
+echo $var
+unset var
+echo $var
+echo '↑ 空白(初期化)'
 
 set
 
 ↑ 空白(初期化)
 ```
+
+### 文字列の扱い
+```sh
+var=a       # クォーテーションをつけなくても文字列の扱いになる
+echo $var
+var='a b' # スペースを含む場合はクォーテーションをつける必要がある
+echo $var
+var=a b  # エラー
+
+a
+a b
+./test.sh: line 60: b: command not found
+```
+
+### Shell の特殊文字とエスケープ
+```sh
+* ? [ ' " ` \ $ ; & ( ) | ~ < > # % = スペース タブ 改行
+```
+
+### エスケープ (\)
+- パラメータを展開させない
+- スペースをエスケープして文字列を連結
+- 自分自身もエスケープ
+
+```sh
+echo 'エスケープ'
+var=value
+echo $var
+echo \$var      # $ をエスケープすることでパラメータ展開させない
+echo \$var $var # 並べて出力
+echo \\         # \ 自身も \ でエスケープできる
+
+var=hoge\ fuga  # スペースをエスケープすることで連続した文字列として処理できる(見づらいので非推奨)
+echo $var
+
+value
+$var
+$var value
+\
+hoge fuga
+```
+
+### シングルクォーテーション と ダブルクォーテーション
+- シングルは '' 内が展開されない
+- ダブルは "" で展開される
+
+```sh
+single='${single}'
+double="${double}"
+echo $single
+echo $double
+
+${single}
+(空白を参照してるので空が帰る)
+```
+
+### 文字列の連結
+$var1$var2 のように つなげるだけで連結がされる
+
+
+### Shellへの 引数の渡し方
+```sh
+$ ./test.sh arg1 arg2 arg3
+```
+
+
+### 引数の受け取り方
+$1 or ${1}  で引数の順番を指定して受け取る
+10番目以降は {} が必要
+
 

@@ -49,3 +49,58 @@ echo $var
 unset var
 echo $var
 echo '↑ 空白(初期化)'
+
+
+# Shell の文字列
+echo '文字列'
+var=a       # クォーテーションをつけなくても文字列の扱いになる
+echo $var
+var='a b' # スペースを含む場合はクォーテーションをつける必要がある
+echo $var
+var=a b  # エラー
+
+
+
+# ESCAPE
+echo 'エスケープ'
+var=value
+echo $var
+echo \$var      # $ をエスケープすることでパラメータ展開させない
+echo \$var $var # 並べて出力
+echo \\         # \ 自身も \ でエスケープできる
+
+var=hoge\ fuga  # スペースをエスケープすることで連続した文字列として処理できる(見づらいので非推奨)
+echo $var
+
+
+# シングルとダブル
+echo 'single or double'
+single='${single}'
+double="${double}"
+echo $single
+echo $double
+
+
+# 文字列の連結
+echo '文字列'
+var1='hoge''fuga'
+echo '$var1': $var1
+
+var2=hoge
+var3=$var1$var2
+echo '$var3': $var3
+
+echo "\$var1hoge": $var1hoge
+echo "\$var1'hoge'": $var1'hoge'
+echo "\${var1}hoge": ${var1}hoge
+echo "\${var1}'hoge'": ${var1}'hoge'
+
+
+# 引数の受け取り
+echo ' ./test.sh arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8 arg9 arg10 を実行します'
+echo '$1': $1       # {} なくても OK
+echo '${2}': ${2}   # {} があっても OK
+echo '"$3"': "$3"   # ダブルクォーテーションの中でも展開される
+echo '${10}': ${10} # 10番目以降は {} が必要
+echo '${11}': ${11} # 引数として指定されていない番号の位置パラメータには値が設定されない
+echo '$10':$10
