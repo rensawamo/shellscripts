@@ -99,7 +99,7 @@ module.exports = {
 };
 ```
 
-# 使い方
+## git cz の 使い方
 ```sh
 $ git add .
 
@@ -128,6 +128,7 @@ $ git log --oneline
 [angular](https://github.com/angular/angular/tree/main) の規約を参考にした
 githubのコーディング規約
 
+カスタマイズ可能
 ``` sh
 <[scope]><type>: <short summary>
    │       │             │
@@ -138,10 +139,10 @@ githubのコーディング規約
    └─⫸ コミットの対象となるGoモジュールを特定するためのもの
 ```
 
- 
- # Shell 
 
-## 使い時
+# shellscript 
+
+## 使うとき
 - 定期的なシステムメンテナンス
 ファイルのバックアップ、ログの分割・圧縮・削除、システムの状態チェックなど、定期的に行う作業の自動化
 
@@ -169,18 +170,18 @@ githubのコーディング規約
 UNIX 間のアプリの移植性を高めるための規格
 
 
-# Shellの実行
+## Shellの実行
 ```sh
 $ ./test.sh
 bash: ./test.sh: Permission denied
 ```
 
-権限の付与が必要
+### 権限の付与が必要
 ```sh
 $ chmod +x test.sh
 ```
 
-改行
+### 改行
 ``` 
 echo  
 \
