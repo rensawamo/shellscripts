@@ -117,3 +117,23 @@ echo '入力値' $1 # 第１引数を出力
 exit $1 # exit コマンドで終了ステータスを指定
 
 
+#!/bin/bash
+echo -----------
+echo 引数の数 $#
+echo '$1'の値 $1
+echo '$2'の値 $2
+shift
+echo $?
+echo -----------
+echo 引数の数 $#
+echo '$1'の値 $1
+echo '$2'の値 $2
+shift
+echo $?
+echo -----------
+echo 引数の数 $#
+echo '$1'の値 $1
+echo '$2'の値 $2
+shift   # ここで 変数に値がなくなるから
+echo $? # ステータスコードで 1が表示
+echo -----------
