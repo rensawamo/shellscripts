@@ -129,10 +129,12 @@ $ git log --oneline
 githubのコーディング規約
 
 ``` sh
-<type>: <short summary>
-  │             │
-  │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし (#issue)
-  │      
-  └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test 
+<[scope]><type>: <short summary>
+│          │             │
+│          │             └─⫸ 現在形で簡潔な要約, 大文字でない, 最後にピリオド(句点)なし (#issue)
+│          │      
+│          └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test
+│ 
+└─⫸ コミットの対象となるGoモジュールを特定するためのもの
 ```
 
