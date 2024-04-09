@@ -133,9 +133,3 @@ githubのコーディング規約
   │      
   └─⫸ コミットの種類: build|ci|docs|feat|fix|perf|refactor|test 
 ```
-
-scope
-d
-dd
-dddddd
-dffdf
