@@ -13,7 +13,7 @@ $ vim  changelog.config.js
 
 module.exports = {
   disableEmoji: false,
-  format: '{scope} {type}: {subject}',
+  format: '[{scope}] {type}: {subject}',
   list: [
     'chore',
     'ci',
@@ -139,3 +139,86 @@ githubのコーディング規約
 ```
 
  
+ # Shell 
+
+## 使い時
+- 定期的なシステムメンテナンス
+ファイルのバックアップ、ログの分割・圧縮・削除、システムの状態チェックなど、定期的に行う作業の自動化
+
+- データ処理
+ファイルの検索やテキストの加工など
+
+- システムセットアップ
+ソフトウェアのインストール、設定ファイルの編集、サービスの起動・停止など、システムの初期設定やアップデートの自動化
+
+- テスト
+動作チェックなどの簡単なテストスクリプト
+
+
+## shebang
+#! で始まる行を shebang (シェバン/シェバング/シバン)と言う
+どのプログラムでスクリプトを実行するか指定
+スクリプトファイルに後述の実行権限をつけて実行すると shebangを見て実行
+
+## #!/bin/bash と #!/bin/sh
+
+- #!/bin/bash
+機能が豊富
+
+- #!/bin/sh
+UNIX 間のアプリの移植性を高めるための規格
+
+
+# Shellの実行
+```sh
+$  ./test.sh
+bash: ./test.sh: Permission denied
+```
+権限の付与が必要
+```sh
+$ chmod +x test.sh
+```
+
+改行
+``` 
+echo  
+\
+```
+
+複数コマンド ; で区切る
+```
+echo 'Hello world!'; pwd; echo 'End world!';
+```
+
+### 変数の代入
+スペースを入れずに = で代入
+```sh
+var='value1'
+```
+
+### 変数の参照 
+```sh
+$ or  ${}
+```
+
+### 変数の上書きを防止
+```sh
+$ UWAGAKI='上書き'
+$ UWAGAKI='オーバーライド'
+./test.sh: line 42: UWAGAKI: readonly variable
+```
+
+### 変数の初期化
+unsetを使うと 未定義の状態にもどす
+```sh
+$ var='set'
+$ echo $var
+$ unset var
+$ echo $var
+$ echo '↑ 空白(初期化)'
+
+set
+
+↑ 空白(初期化)
+```
+
